@@ -17,11 +17,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var flipCountLable: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
+    var emojiChoices = ["🐭","🦊","🐼","🐭","🦊","🐼"]
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
-        let cardNumber = cardButtons.firstIndex(of: sender)
-        print("number card \(cardNumber)")
+        let cardNumber = cardButtons.firstIndex(of: sender)!
+        flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
     }
     
     
