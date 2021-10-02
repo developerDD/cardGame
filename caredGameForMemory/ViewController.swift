@@ -19,12 +19,36 @@ class ViewController: UIViewController {
     }
     
     
-    var emojiChoices = ["🐭","🦊","🐼","🐭","🦊","🐼"]
+    var emojiChoices = ["🐭","🦊","🐼","🐮","🐸","🐹","🐨","🐔","🦄","🐥"]
+    var emojiDictionari = [Int:String]()
+    func emojiIdentyfier(for card: Card)-> String{
+        if emojiDictionari[card.identifire] == nil{
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            emojiDictionari[card.identifire] = emojiChoices.remove(at: randomIndex)
+        }
+        return emojiDictionari[card.identifire] ?? "?"
+    }
+    
+    func updateViewFromModel(){
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            let card = game.cadrs[index]
+            if card.isFaceUp {
+                button.setTitle(emojiIdentyfier(for: card), for: UIControl.State.normal)
+                button.backgroundColor = .white
+            }else{
+                button.setTitle("", for: UIControl.State.normal)
+                button.backgroundColor = card.isMatched ? .clear : .orange
+            }
+        }
+        
+    }
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
         if let cardNumber = cardButtons.firstIndex(of: sender){
             game.chooseCard(at: cardNumber)
+            updateViewFromModel()
         }
     }
         
