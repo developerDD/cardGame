@@ -9,23 +9,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var flipCountLable: UILabel!
+    @IBOutlet var cardButtons: [UIButton]!
+   lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     var flipCount = 0{
         didSet {
             flipCountLable.text = "Flips: \(flipCount)"
         }
     }
     
-    @IBOutlet weak var flipCountLable: UILabel!
-    @IBOutlet var cardButtons: [UIButton]!
+    
     var emojiChoices = ["🐭","🦊","🐼","🐭","🦊","🐼"]
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
-        let cardNumber = cardButtons.firstIndex(of: sender)!
-        flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+        if let cardNumber = cardButtons.firstIndex(of: sender){
+            game.chooseCard(at: cardNumber)
+        }
     }
-    
-    
+        
     func flipCard(withEmoji emoji: String, on button: UIButton){
        // print("Flip card \(emoji)")
         if button.currentTitle == emoji{
