@@ -19,12 +19,14 @@ class ViewController: UIViewController {
     }
     
     
+    
     var emojiChoices = ["🐭","🦊","🐼","🐮","🐸","🐹","🐨","🐔","🦄","🐥"]
     var emojiDictionari = [Int:String]()
+    //BAG
     func emojiIdentyfier(for card: Card)-> String{
         if emojiDictionari[card.identifire] == nil{
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emojiDictionari[card.identifire] = emojiChoices.remove(at: randomIndex)
+            emojiDictionari[card.identifire] = emojiChoices.remove(at: randomIndex)// выход за граници массива
         }
         return emojiDictionari[card.identifire] ?? "?"
     }
