@@ -17,7 +17,7 @@ class Game {
             let card = Card()//создаем карту с идентификатором
             cadrs += [card,card] // запишем в массив пару одинаковых карт (парных)
         }
-        
+        cadrs.shuffle()
     }
     
     func chooseCard (at index: Int){
