@@ -19,9 +19,6 @@ class ViewController: UIViewController {
             flipCountLable.text = "Flips: \(flipCount)"
         }
     }
-    
-    
-    
     var emojiChoices = ["🐭","🦊","🐼","🐮","🐝","🐹","🐨","🐔","🦄","🐥","🐯","🐷","🐽","🐵","🙈","🙉","🙊","🐒","🐧","🐦","🐤","🐣","🦆","🦅","🦉","🦇","🐺","🐗"]
     var emojiDictionari = [Int:String]()
     
@@ -69,8 +66,6 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
         if let cardNumber = cardButtons.firstIndex(of: sender){
@@ -78,7 +73,6 @@ class ViewController: UIViewController {
             updateViewFromModel()
         }
     }
-    
     func flipCard(withEmoji emoji: String, on button: UIButton){
         // print("Flip card \(emoji)")
         if button.currentTitle == emoji{

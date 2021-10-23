@@ -18,7 +18,6 @@ struct Card {
         identifireNumber+=1
         return identifireNumber
     }
-    
     init(){
         self.identifire=Card.identifireGenerator()
     }

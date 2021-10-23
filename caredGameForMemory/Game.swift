@@ -19,14 +19,12 @@ class Game {
         }
         cadrs.shuffle()
     }
-    
     func chooseCard (at index: Int){
         if !cadrs[index].isMatched{
             if let matchingIndex = indexOneOnlyFaceUpCard, matchingIndex != index {
                 if cadrs[matchingIndex].identifire == cadrs[index].identifire {
                     cadrs[matchingIndex].isMatched = true
                     cadrs[index].isMatched = true
-                    
                 }
                 cadrs[index].isFaceUp = true
                 indexOneOnlyFaceUpCard = nil
@@ -38,7 +36,5 @@ class Game {
                 indexOneOnlyFaceUpCard = index
             }
         }
-        
     }
-    
 }
