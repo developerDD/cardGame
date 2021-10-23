@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var endGame: UILabel!
     @IBOutlet weak var flipCountLable: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
    

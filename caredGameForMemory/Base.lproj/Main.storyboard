@@ -316,6 +316,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MO-Rl-QVb">
+                                <rect key="frame" x="16" y="764" width="392" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -329,6 +336,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="endGame" destination="0MO-Rl-QVb" id="jjM-vs-pCa"/>
                         <outlet property="flipCountLable" destination="1CS-dK-iVH" id="Fzj-FG-nN1"/>
                         <outletCollection property="cardButtons" destination="nSF-j8-a4Y" collectionClass="NSMutableArray" id="v4d-A0-uTX"/>
                         <outletCollection property="cardButtons" destination="DKc-rq-9qR" collectionClass="NSMutableArray" id="PgJ-iu-MAP"/>
@@ -362,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.46153846153846" y="83.175355450236964"/>
+            <point key="canvasLocation" x="18.22429906542056" y="82.937365010799141"/>
         </scene>
     </scenes>
     <resources>
