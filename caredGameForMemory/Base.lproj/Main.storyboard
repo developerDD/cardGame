@@ -316,12 +316,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MO-Rl-QVb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0MO-Rl-QVb">
                                 <rect key="frame" x="16" y="764" width="392" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="lUJ-FE-GbS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <color key="highlightedColor" systemColor="systemGreenColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -329,9 +331,13 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FXE-Lg-TOy" secondAttribute="trailing" constant="20" id="140-fy-B0G"/>
                             <constraint firstItem="FXE-Lg-TOy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Nb-th-eWD"/>
+                            <constraint firstItem="1CS-dK-iVH" firstAttribute="top" secondItem="0MO-Rl-QVb" secondAttribute="bottom" constant="24" id="FUx-T8-0AV"/>
                             <constraint firstItem="1CS-dK-iVH" firstAttribute="top" relation="lessThanOrEqual" secondItem="FXE-Lg-TOy" secondAttribute="bottom" constant="100" id="GAW-XL-h41"/>
+                            <constraint firstItem="0MO-Rl-QVb" firstAttribute="leading" secondItem="FXE-Lg-TOy" secondAttribute="leading" id="H3T-Hg-tHf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1CS-dK-iVH" secondAttribute="bottom" id="NSc-dv-onD"/>
+                            <constraint firstItem="0MO-Rl-QVb" firstAttribute="trailing" secondItem="FXE-Lg-TOy" secondAttribute="trailing" id="UVT-JG-SAf"/>
                             <constraint firstItem="1CS-dK-iVH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cr8-PY-taq"/>
+                            <constraint firstItem="0MO-Rl-QVb" firstAttribute="top" secondItem="FXE-Lg-TOy" secondAttribute="bottom" constant="8" id="lbS-2z-ZZB"/>
                             <constraint firstItem="FXE-Lg-TOy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="pxP-NX-Nvg"/>
                         </constraints>
                     </view>
@@ -374,6 +380,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

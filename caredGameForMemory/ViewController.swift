@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var endGame: UILabel!
     @IBOutlet weak var flipCountLable: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
-   
+    
     lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     var flipCount = 0{
         didSet {
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     
     func updateViewFromModel(){
         var allCardsFind = true
+        endGame.isHidden = true
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cadrs[index]
@@ -59,7 +60,9 @@ class ViewController: UIViewController {
                 
         }
         if allCardsFind{
-            flipCountLable.text = "Вы открыли все карты за \(flipCount) шагов!"
+            flipCountLable.isHidden = true
+            endGame.text = "Вы открыли все карты за \(flipCount) клика!"
+            endGame.isHidden = false
             for but in cardButtons {
                 but.isHidden = true
             }
