@@ -26,6 +26,7 @@ class Game {
                 if cadrs[matchingIndex].identifire == cadrs[index].identifire {
                     cadrs[matchingIndex].isMatched = true
                     cadrs[index].isMatched = true
+                    
                 }
                 cadrs[index].isFaceUp = true
                 indexOneOnlyFaceUpCard = nil

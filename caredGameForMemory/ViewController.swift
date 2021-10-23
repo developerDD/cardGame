@@ -8,10 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var flipCountLable: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
-   lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+   
+    lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     var flipCount = 0{
         didSet {
             flipCountLable.text = "Flips: \(flipCount)"
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     
     
     
-    var emojiChoices = ["🐭","🦊","🐼","🐮","🐸","🐹","🐨","🐔","🦄","🐥","🐯","🐷","🐽","🐵","🙈","🙉","🙊","🐒","🐧","🐦","🐤","🐣","🦆","🦅","🦉","🦇","🐺","🐗"]
+    var emojiChoices = ["🐭","🦊","🐼","🐮","🐝","🐹","🐨","🐔","🦄","🐥","🐯","🐷","🐽","🐵","🙈","🙉","🙊","🐒","🐧","🐦","🐤","🐣","🦆","🦅","🦉","🦇","🐺","🐗"]
     var emojiDictionari = [Int:String]()
     
     func emojiIdentyfier(for card: Card)-> String{
@@ -32,10 +33,13 @@ class ViewController: UIViewController {
     }
     
     func updateViewFromModel(){
+        var allCardsFind = true
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cadrs[index]
             if card.isFaceUp {
+                // button.titleLabel?.font = UIFont(name: "Times New Roman", size: 70)
+                // button.titleLabel?.adjustsFontSizeToFitWidth = true
                 button.setTitle(emojiIdentyfier(for: card), for: UIControl.State.normal)
                 button.backgroundColor = .white
             }else{
@@ -43,8 +47,25 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? .clear : .orange
             }
         }
+        for index in cardButtons.indices {
+            let card = game.cadrs[index]
+            if card.isMatched {
+                continue
+            }else{
+                allCardsFind = false
+                break
+            }
+                
+        }
+        if allCardsFind{
+            flipCountLable.text = "Вы открыли все карты за \(flipCount) шагов!"
+            for but in cardButtons {
+                but.isHidden = true
+            }
+        }
         
     }
+    
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
@@ -53,9 +74,9 @@ class ViewController: UIViewController {
             updateViewFromModel()
         }
     }
-        
+    
     func flipCard(withEmoji emoji: String, on button: UIButton){
-       // print("Flip card \(emoji)")
+        // print("Flip card \(emoji)")
         if button.currentTitle == emoji{
             button.setTitle("", for: UIControl.State.normal)
             button.backgroundColor = .orange
