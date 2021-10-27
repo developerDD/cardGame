@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var flipCountLable: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
     
-    lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = Game(numberOfPairsOfCards: numberOfPairsOfCards)
+    //Добавил выцисляемые свойсва количества парных карт
+    var numberOfPairsOfCards: Int {
+        (cardButtons.count + 1) / 2
+    }
     var flipCount = 0{
         didSet {
             flipCountLable.text = "Flips: \(flipCount)"
